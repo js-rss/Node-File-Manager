@@ -1,0 +1,20 @@
+{
+    "name": "file-manager",
+    "version": "1.0.0",
+    "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
+    "type": "module",
+    "scripts": {
+      "fm": "node node/src/index.js --username=Anonim"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/js-rss/Node-File-Manager.git"
+    },
+    "keywords": [],
+    "author": "js-rss",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/rs-jss/Node-File-Manage/issues"
+    },
+    "homepage": "https://github.com/rs-jss/Node-File-Manage#Readme"
+  }
