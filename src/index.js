@@ -34,8 +34,13 @@ const rl = readline.createInterface({ input, output });
     };
     printDir();
 rl.on('line', (input) => {
-
-
+//console.log(input);
+    
+    const Input__Line = input.toLocaleLowerCase().trimStart() || undefined;
+    //console.log(Input__Line);
+if(!Input__Line) printDir();
+if(Input__Line == '.exit') rl.close();
+console.log(Input__Line);
 })
     rl.on('close', () => {
         console.log(`\nThank you for using File Manager, ${Cur_name}, goodbye!`);
