@@ -4,6 +4,7 @@ import readline from 'node:readline';
 import { change__Dir } from './navigation/changeDir.js';
 import { listItems } from './navigation/showAll.js';
 import { Up__Dir } from './navigation/upDir.js';
+import { File__read } from './modules/fs/read.js';
 
 
 const homeDir = os.homedir();
@@ -33,7 +34,7 @@ const rl = readline.createInterface({ input, output });
 
     //pipe(stdout));
    export function printDir(){
-        console.log(`You are currently in ${cwd()}`);
+        console.log(`\n You are currently in ${cwd()}`);
         rl.prompt();
     };
     printDir(); 
@@ -46,6 +47,7 @@ rl.on('line', (input) => {
 //console.log(input);
   const Input__1__Arg = input.trimStart().split(' ')[0] || undefined;
   const Input__2__Arg = input.trimStart().split(' ')[1] || undefined;
+  console.log(Input__2__Arg)
 //console.log(Input__Line);
    //if(!Input__Line) printDir();
    //if(Input__Line == '.exit') rl.close();
@@ -63,6 +65,9 @@ switch (Input__1__Arg){
     break;
     case 'up':
       Up__Dir();
+    break;
+    case 'cat':
+      File__read(Input__2__Arg);
     break;
 
 
