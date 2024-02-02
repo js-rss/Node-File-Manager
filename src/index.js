@@ -1,9 +1,9 @@
-import os, { homedir } from 'node:os';
-import process, {chdir, cwd } from 'node:process';
+import os from 'node:os';
+import process, { cwd } from 'node:process';
 import readline from 'node:readline';
-import path from 'node:path';
 import { change__Dir } from './navigation/changeDir.js';
 import { listItems } from './navigation/showAll.js';
+import { Up__Dir } from './navigation/upDir.js';
 
 
 const homeDir = os.homedir();
@@ -40,21 +40,32 @@ const rl = readline.createInterface({ input, output });
 function printError(){
     console.log('Operation failed');
 }
+
+
 rl.on('line', (input) => {
 //console.log(input);
-  const Input__Line = input.toLocaleLowerCase().trimStart() || undefined;
+  const Input__1__Arg = input.trimStart().split(' ')[0] || undefined;
+  const Input__2__Arg = input.trimStart().split(' ')[1] || undefined;
 //console.log(Input__Line);
    //if(!Input__Line) printDir();
    //if(Input__Line == '.exit') rl.close();
 //console.log(Input__Line);
-switch (Input__Line){
+
+switch (Input__1__Arg){
     case '.exit':
           rl.close();
     break;     
     case 'ls':
-        listItems()
+        listItems();
     break;
- 
+    case 'cd':
+          change__Dir(Input__2__Arg).catch(() => printError()).finally(() => printDir()); 
+    break;
+    case 'up':
+      Up__Dir();
+    break;
+
+
  
  
     default:
