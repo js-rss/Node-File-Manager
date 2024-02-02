@@ -1,6 +1,10 @@
 import os, { homedir } from 'node:os';
-import process, { cwd } from 'node:process';
+import process, {chdir, cwd } from 'node:process';
 import readline from 'node:readline';
+import path from 'node:path';
+import { change__Dir } from './navigation/changeDir.js';
+import { listItems } from './navigation/showAll.js';
+
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -28,19 +32,41 @@ const output = process.stdout
 const rl = readline.createInterface({ input, output });
 
     //pipe(stdout));
-    function printDir(){
+   export function printDir(){
         console.log(`You are currently in ${cwd()}`);
         rl.prompt();
     };
-    printDir();
+    printDir(); 
+function printError(){
+    console.log('Operation failed');
+}
 rl.on('line', (input) => {
 //console.log(input);
-    
-    const Input__Line = input.toLocaleLowerCase().trimStart() || undefined;
-    //console.log(Input__Line);
-if(!Input__Line) printDir();
-if(Input__Line == '.exit') rl.close();
-console.log(Input__Line);
+  const Input__Line = input.toLocaleLowerCase().trimStart() || undefined;
+//console.log(Input__Line);
+   //if(!Input__Line) printDir();
+   //if(Input__Line == '.exit') rl.close();
+//console.log(Input__Line);
+switch (Input__Line){
+    case '.exit':
+          rl.close();
+    break;     
+    case 'ls':
+        listItems()
+    break;
+ 
+ 
+ 
+    default:
+      console.log('Invalid input');
+      printDir();
+      break;
+
+
+//if(Input__Line.includes('cd')) {
+
+ 
+  }
 })
     rl.on('close', () => {
         console.log(`\nThank you for using File Manager, ${Cur_name}, goodbye!`);
