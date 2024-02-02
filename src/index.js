@@ -5,7 +5,7 @@ import { change__Dir } from './navigation/changeDir.js';
 import { listItems } from './navigation/showAll.js';
 import { Up__Dir } from './navigation/upDir.js';
 import { File__read } from './modules/fs/read.js';
-
+import { File__create } from './modules/fs/create.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -45,8 +45,8 @@ function printError(){
 
 rl.on('line', (input) => {
 //console.log(input);
-  const Input__1__Arg = input.trimStart().split(' ')[0] || undefined;
-  const Input__2__Arg = input.trimStart().split(' ')[1] || undefined;
+  const Input__1__Arg = input.trimStart().split(' ')[0] || '';
+  const Input__2__Arg = input.trimStart().split(' ')[1] || '';
   console.log(Input__2__Arg)
 //console.log(Input__Line);
    //if(!Input__Line) printDir();
@@ -68,6 +68,9 @@ switch (Input__1__Arg){
     break;
     case 'cat':
       File__read(Input__2__Arg);
+    break;
+    case 'add':
+      File__create(Input__2__Arg);
     break;
 
 
