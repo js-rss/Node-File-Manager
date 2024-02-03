@@ -11,6 +11,8 @@ import { File__remove } from './modules/fs/delete.js';
 import { File__copy } from './modules/fs/copy.js';
 import { Cut__paste } from './modules/fs/cut_paste.js';
 import { calculateHash } from './modules/hash/calcHash.js';
+import { compress } from './modules/zip/compress.js';
+import { decompress } from './modules/zip/decompress.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -93,7 +95,12 @@ switch (Input__1__Arg){
     case 'hash':
       calculateHash(Input__2__Arg);
     break;
-
+    case 'compress':
+      compress(Input__2__Arg, Input__3__Arg);
+    break;
+    case 'decompress':
+      decompress(Input__2__Arg, Input__3__Arg);
+    break;
 
 
  
