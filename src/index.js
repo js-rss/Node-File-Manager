@@ -10,6 +10,7 @@ import { File__rename } from './modules/fs/rename.js';
 import { File__remove } from './modules/fs/delete.js';
 import { File__copy } from './modules/fs/copy.js';
 import { Cut__paste } from './modules/fs/cut_paste.js';
+import { calculateHash } from './modules/hash/calcHash.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -52,7 +53,7 @@ rl.on('line', (input) => {
   const Input__1__Arg = input.trimStart().split(' ')[0] || '';
   const Input__2__Arg = input.trimStart().split(' ')[1] || '';
   const Input__3__Arg = input.trimStart().split(' ')[2] || '';
-  console.log(Input__2__Arg)
+  //console.log(Input__2__Arg)
 //console.log(Input__Line);
    //if(!Input__Line) printDir();
    //if(Input__Line == '.exit') rl.close();
@@ -87,7 +88,10 @@ switch (Input__1__Arg){
       File__copy(Input__2__Arg, Input__3__Arg);
     break;
     case 'mv':
-      Cut__paste(Input__2__Arg, Input__3__Arg)
+      Cut__paste(Input__2__Arg, Input__3__Arg);
+    break;
+    case 'hash':
+      calculateHash(Input__2__Arg);
     break;
 
 
