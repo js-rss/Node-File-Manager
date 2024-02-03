@@ -8,6 +8,7 @@ import { File__read } from './modules/fs/read.js';
 import { File__create } from './modules/fs/create.js';
 import { File__rename } from './modules/fs/rename.js';
 import { File__remove } from './modules/fs/delete.js';
+import { File__copy } from './modules/fs/copy.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -80,6 +81,9 @@ switch (Input__1__Arg){
     break;
     case 'rm':
       File__remove(Input__2__Arg);
+    break;
+    case 'cp':
+      File__copy(Input__2__Arg, Input__3__Arg);
     break;
 
 

@@ -2,25 +2,16 @@ import { cp }from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path, { dirname, resolve } from 'node:path';
 //import { stat } from 'node:fs';
+import { cwd } from 'node:process';
+import { printDir } from '../../index.js';
 
-const Valid__Path = fileURLToPath(import.meta.url);
-const __dirname = dirname(Valid__Path);
-const Folder_Src__Path = resolve(__dirname, 'files')
-const Folder_Target__Path = resolve(__dirname, 'files_copy')
-
-/*const isExists = async (path) => {
-  try {
-    await stat(path);
-    return true;
-}
-  catch {
-    return false;
-  }
-
-}*/
-
-const copy = async () => {
-   
+export const File__copy = async (src__in, src__out) => {
+  const currentDir = cwd();
+  const File__Src__Path = path.resolve(currentDir, src__in);
+  const Full__Out__Path = path.resolve(src__out, src__in)
+  const Folder__Target__Path = path.resolve(File__Src__Path, Full__Out__Path);
+  //console.log(File__Src__Path, 'src')
+  //console.log(Folder__Target__Path, 'tar')
 /*const Folder_Src__Path = path.join(__dirname, '/files');
 const Folder_Target__Path = path.join(__dirname, '/files_copy');
 */
@@ -28,14 +19,15 @@ try {
      /* if (await isExists(Folder_Target__Path) || !(await isExists(Folder_Src__Path))) {
       throw new Error('FS operation failed');
     }*/
-      await cp(Folder_Src__Path, Folder_Target__Path, {
+      await cp(File__Src__Path, Folder__Target__Path, {
       recursive: true,force:false,errorOnExist:true
     })
   } catch (error) {
     console.error('FS operation failed');
   }
+  setTimeout(printDir,125);
 }
-await copy();
+//await copy();
 
 
 
