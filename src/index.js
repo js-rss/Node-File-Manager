@@ -7,6 +7,7 @@ import { Up__Dir } from './navigation/upDir.js';
 import { File__read } from './modules/fs/read.js';
 import { File__create } from './modules/fs/create.js';
 import { File__rename } from './modules/fs/rename.js';
+import { File__remove } from './modules/fs/delete.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -72,15 +73,22 @@ switch (Input__1__Arg){
       File__read(Input__2__Arg);
     break;
     case 'add':
-      File__create(Input__2__Arg, Input__3__Arg);
+      File__create(Input__2__Arg);
     break;
     case 'rn':
       File__rename(Input__2__Arg, Input__3__Arg);
     break;
+    case 'rm':
+      File__remove(Input__2__Arg);
+    break;
 
 
  
  
+
+
+
+
     default:
       console.log('Invalid input');
       printDir();
