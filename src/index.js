@@ -9,6 +9,7 @@ import { File__create } from './modules/fs/create.js';
 import { File__rename } from './modules/fs/rename.js';
 import { File__remove } from './modules/fs/delete.js';
 import { File__copy } from './modules/fs/copy.js';
+import { Cut__paste } from './modules/fs/cut_paste.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -85,6 +86,10 @@ switch (Input__1__Arg){
     case 'cp':
       File__copy(Input__2__Arg, Input__3__Arg);
     break;
+    case 'mv':
+      Cut__paste(Input__2__Arg, Input__3__Arg)
+    break;
+
 
 
  

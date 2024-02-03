@@ -10,8 +10,8 @@ export const File__copy = async (src__in, src__out) => {
   const File__Src__Path = path.resolve(currentDir, src__in);
   const Full__Out__Path = path.resolve(src__out, src__in)
   const Folder__Target__Path = path.resolve(File__Src__Path, Full__Out__Path);
-  //console.log(File__Src__Path, 'src')
-  //console.log(Folder__Target__Path, 'tar')
+  console.log(File__Src__Path, 'src')
+  console.log(Folder__Target__Path, 'tar')
 /*const Folder_Src__Path = path.join(__dirname, '/files');
 const Folder_Target__Path = path.join(__dirname, '/files_copy');
 */
