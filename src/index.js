@@ -6,6 +6,7 @@ import { listItems } from './navigation/showAll.js';
 import { Up__Dir } from './navigation/upDir.js';
 import { File__read } from './modules/fs/read.js';
 import { File__create } from './modules/fs/create.js';
+import { File__rename } from './modules/fs/rename.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -47,6 +48,7 @@ rl.on('line', (input) => {
 //console.log(input);
   const Input__1__Arg = input.trimStart().split(' ')[0] || '';
   const Input__2__Arg = input.trimStart().split(' ')[1] || '';
+  const Input__3__Arg = input.trimStart().split(' ')[2] || '';
   console.log(Input__2__Arg)
 //console.log(Input__Line);
    //if(!Input__Line) printDir();
@@ -70,7 +72,10 @@ switch (Input__1__Arg){
       File__read(Input__2__Arg);
     break;
     case 'add':
-      File__create(Input__2__Arg);
+      File__create(Input__2__Arg, Input__3__Arg);
+    break;
+    case 'rn':
+      File__rename(Input__2__Arg, Input__3__Arg);
     break;
 
 
