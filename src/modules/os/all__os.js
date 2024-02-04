@@ -3,6 +3,7 @@ import { printDir } from "../../index.js";
 import { cpus_os } from "./cpus.js";
 import { home_dir } from "./homedir.js";
 import { user_name } from "./username.js";
+import { architecture } from "./architecture.js";
 
 export const all__os = async (a) => {
 
@@ -27,7 +28,9 @@ export const all__os = async (a) => {
             case 'username':
             user_name();
             break;
-            
+            case 'architecture':
+            architecture();
+            break;
       
 
 
