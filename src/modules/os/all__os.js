@@ -1,5 +1,6 @@
 import { eol } from "./eol.js";
 import { printDir } from "../../index.js";
+import { cpus_os } from "./cpus.js";
 
 export const all__os = async (a) => {
 
@@ -15,7 +16,10 @@ export const all__os = async (a) => {
             case 'EOL':
                   eol();
             break;     
-           
+            case 'cpus':
+                cpus_os();
+            break;
+            
       
 
 
