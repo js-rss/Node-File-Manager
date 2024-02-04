@@ -2,6 +2,7 @@ import { eol } from "./eol.js";
 import { printDir } from "../../index.js";
 import { cpus_os } from "./cpus.js";
 import { home_dir } from "./homedir.js";
+import { user_name } from "./username.js";
 
 export const all__os = async (a) => {
 
@@ -22,6 +23,9 @@ export const all__os = async (a) => {
             break;
             case 'homedir':
             home_dir();
+            break;
+            case 'username':
+            user_name();
             break;
             
       
