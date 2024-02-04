@@ -13,6 +13,7 @@ import { Cut__paste } from './modules/fs/cut_paste.js';
 import { calculateHash } from './modules/hash/calcHash.js';
 import { compress } from './modules/zip/compress.js';
 import { decompress } from './modules/zip/decompress.js';
+import { all__os } from './modules/os/all__os.js';
 
 const homeDir = os.homedir();
 process.chdir(homeDir);
@@ -100,6 +101,9 @@ switch (Input__1__Arg){
     break;
     case 'decompress':
       decompress(Input__2__Arg, Input__3__Arg);
+    break;
+    case 'os':
+      all__os(Input__2__Arg);
     break;
 
 
